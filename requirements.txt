@@ -5,3 +5,4 @@ pandas
 shap
 matplotlib
 xgboost
+pickle
