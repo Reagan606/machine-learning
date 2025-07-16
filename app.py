@@ -10,7 +10,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Load the model
-model = joblib.load('feature_info.pkl')
+loaded_data = joblib.load('feature_info.pkl')
+model = loaded_data['model']  # 根据实际键名调整
 
 # Define feature options
 Diagnose_options = {
