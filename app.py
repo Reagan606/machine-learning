@@ -9,8 +9,7 @@ model = joblib.load('xgboost_model.pkl')
 # Define feature options
 Diagnose_options = {    1: "特发", 2: '不典型',    3: '继发' ,  4: '抗体诊断' , 5:"未知"}
 # Define feature names
-feature_names = [   "总胆汁酸TBA（μmol/L）", "前白蛋白PA（mg/L）",  "红细胞（尿液）（个/HPF）", "二氧化碳", "甘胆酸CG（mg/L）", "红细胞体积分布宽度CVRDW（%）",    "淋巴细胞绝对值Lymph#（×10⁹/L）",  "嗜碱性粒细胞绝对值Baso#（×10⁹/L）",
-                "碱性磷酸酶ALP（IU/L）", "总胆固醇TC（mmol/L）", "嗜酸性粒细胞绝对值Baso#（×10⁹/L）","平均血小板体积MPV（fl）","具体诊断","β2微球蛋白β2-MG（mg/L）","低密度脂蛋白胆固醇LDL-C（mmol/L）"]
+feature_names = ["TBA","PA","RBC_U","CO2","CG","CVRDW","Lymph_abs","Baso_abs","ALP","TC","Eos_abs" , "MPV" ,"Diagnose" ,"β2_MG" , "LDL_C"]
 # Streamlit user interface
 st.title("麻附益肾方治疗膜性肾病疗效预测")
 
