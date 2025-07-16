@@ -58,28 +58,34 @@ if st.button("Predict"):
         st.write(f"**Predicted Class:** {predicted_class}")
         st.write(f"**Prediction Probabilities:** {predicted_proba}")
         probability = predicted_proba[predicted_class] * 100
-        
+
+
         if predicted_class == 1:
-            st.success(f"✅ 预测结果：麻附益肾方治疗对您可能有效 (概率: {probability:.1f}%)")
-            st.info("""
+        advice = (
+            f"✅ 预测结果：麻附益肾方治疗对您可能有效 (概率: {probability:.1f}% "
+            """
             **建议：**
             - 按照医嘱继续使用麻附益肾方治疗
             - 定期复查尿蛋白和肾功能指标
             - 保持低盐低脂饮食
-            """)
-        else:
-            st.warning(f"⚠️ 预测结果：麻附益肾方治疗对您可能效果有限 (概率: {probability:.1f}%)")
-            st.info("""
+            """
+        )
+    else:
+        advice = (
+            f"⚠️ 预测结果：麻附益肾方治疗对您可能效果有限 (概率: {probability:.1f}%)"
+            """
             **建议：**
             - 咨询医生是否需要调整治疗方案
             - 考虑结合其他治疗方式
             - 密切监测病情变化
-            """)
-        
-explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(pd.DataFrame([feature_values], columns=feature_names))
+            """
+        )
 
-shap.force_plot(explainer.expected_value, shap_values[0], pd.DataFrame([feature_values], columns=feature_names), matplotlib=True)
-plt.savefig("shap_force_plot.png", bbox_inches='tight', dpi=1200)
+   st.write(advice)     
+   explainer = shap.TreeExplainer(model)
+   shap_values = explainer.shap_values(pd.DataFrame([feature_values], columns=feature_names))
 
-st.image("shap_force_plot.png")
+   shap.force_plot(explainer.expected_value, shap_values[0], pd.DataFrame([feature_values], columns=feature_names), matplotlib=True)
+   plt.savefig("shap_force_plot.png", bbox_inches='tight', dpi=1200)
+
+   st.image("shap_force_plot.png")
