@@ -52,7 +52,7 @@ LDL_C = st.number_input("低密度脂蛋白胆固醇LDL-C（mmol/L）:", min_val
 
 
 # Process inputs and make predictions
-feature_values = [TBA, PA,  RBC_U, CO2, CG, CVRDW, Lymph_abs, Baso_abs,ALP, TC, Eos_abs,MPV, Diagnose,β2_MG,LDL_C]
+feature_values = [[TBA, PA,  RBC_U, CO2, CG, CVRDW, Lymph_abs, Baso_abs,ALP, TC, Eos_abs,MPV, Diagnose,β2_MG,LDL_C]]
 features = np.array([feature_values])
 if st.button("Predict"):    
     # Predict class and probabilities
