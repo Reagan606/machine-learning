@@ -46,18 +46,17 @@ LDL_C = st.number_input("低密度脂蛋白胆固醇LDL-C（mmol/L）:", min_val
 
 # 确保特征顺序正确
 feature_values = [TBA, PA, RBC_U, CO2, CG, CVRDW, Lymph_abs, Baso_abs, ALP, TC, Eos_abs, MPV, Diagnose, β2_MG, LDL_C]
+features = np.array([feature_values])
 
 if st.button("Predict"):
-    try:
-        # 创建DataFrame确保特征顺序正确
-        input_df = pd.DataFrame([feature_values], columns=feature_names)
-        
+
         # 预测
-        predicted_class = model.predict(input_df)[0]
-        predicted_proba = model.predict_proba(input_df)[0]
+        predicted_class = model.predict(features)[0]
+        predicted_proba = model.predict_proba(features)[0]
         
         # 显示结果
-        st.subheader("预测结果")
+        st.write(f"**Predicted Class:** {predicted_class}")
+        st.write(f"**Prediction Probabilities:** {predicted_proba}")
         probability = predicted_proba[predicted_class] * 100
         
         if predicted_class == 1:
