@@ -50,14 +50,14 @@ features = np.array([feature_values])
 
 if st.button("Predict"):
 
-        # 预测
-        predicted_class = model.predict(features)[0]
-        predicted_proba = model.predict_proba(features)[0]
+    # 预测
+    predicted_class = model.predict(features)[0]
+    predicted_proba = model.predict_proba(features)[0]
         
-        # 显示结果
-        st.write(f"**Predicted Class:** {predicted_class}")
-        st.write(f"**Prediction Probabilities:** {predicted_proba}")
-        probability = predicted_proba[predicted_class] * 100
+    # 显示结果
+    st.write(f"**Predicted Class:** {predicted_class}")
+    st.write(f"**Prediction Probabilities:** {predicted_proba}")
+    probability = predicted_proba[predicted_class] * 100
 
 
     if predicted_class == 1:
