@@ -18,17 +18,17 @@ feature_names = [    "前白蛋白PA（mg/L）", "总胆汁酸TBA（μmol/L）",
 st.title("麻附益肾方治疗膜性肾病疗效预测")
 
 # 设置
-PA = st.number_input("前白蛋白PA（mg/L）:", min_value=0.00, max_value=600.00, value=300.00,format="%.2f")
+PA = st.number_input("前白蛋白PA（mg/L）:", min_value=0.0, max_value=600.0, value=300.0,format="%.1f")
 
-TBA = st.number_input("总胆汁酸TBA（μmol/L）:", min_value=0.00, max_value=20.00, value=3.00,format="%.2f")
+TBA = st.number_input("总胆汁酸TBA（μmol/L）:", min_value=0.0, max_value=20.0, value=3.0,format="%.1f")
 
 RBC_U = st.number_input("红细胞（尿液）（个/HPF）:", min_value=0.00, max_value=100.00, value=10.00,format="%.2f")
 
 CG = st.number_input("甘胆酸CG（mg/L）:", min_value=0.00, max_value=5.00, value=1.00,format="%.2f")
 
-CVRDW = st.number_input("红细胞体积分布宽度CVRDW（%）:", min_value=0.00, max_value=20.00, value=12.00,format="%.2f")
+CVRDW = st.number_input("红细胞体积分布宽度CVRDW（%）:", min_value=0.0, max_value=20.0, value=12.0,format="%.1f")
 
-CO2 = st.number_input("二氧化碳:", min_value=0.00, max_value=50.00, value=25.00,format="%.2f")
+CO2 = st.number_input("二氧化碳:", min_value=0.0, max_value=50.0, value=25.0,format="%.1f")
 
 Lymph =st.number_input("淋巴细胞绝对值Lymph#（×10⁹/L）:", min_value=0.00, max_value=50.00, value=25.00,format="%.2f")
 
@@ -40,9 +40,9 @@ LDL_C = st.number_input("低密度脂蛋白胆固醇LDL-C（mmol/L）:", min_val
 
 RBC = st.number_input("红细胞计数RBC（×10¹²／L）:", min_value=0.00, max_value=20.00, value=4.00,format="%.2f")
 
-ALP = st.number_input("碱性磷酸酶ALP（IU/L）:", min_value=0.00, max_value=1000.00, value=300.00,format="%.2f")
+ALP = st.number_input("碱性磷酸酶ALP（IU/L）:", min_value=0.0, max_value=1000.0, value=300.0,format="%.1f")
 
-MPV = st.number_input("平均血小板体积MPV（fl）:", min_value=0.00, max_value=20.00, value=5.00,format="%.2f")
+MPV = st.number_input("平均血小板体积MPV（fl）:", min_value=0.0, max_value=20.0, value=5.0,format="%.1f")
 
 WBC_U = st.number_input("白细胞（尿液）（个/HPF）:", min_value=0.00, max_value=100.00, value=10.00,format="%.2f")
 
