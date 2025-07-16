@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Load the model
-model = joblib.load('xgboost_model.pkl')
+model = joblib.load('feature_info.pkl')
 
 # Define feature options
 Diagnose_options = {
