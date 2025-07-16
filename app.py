@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 # Load the model
-model = joblib.load('feature_info.pkl')
+model = joblib.load('xgboost_model_15_features.pkl')
 
 # Define feature options
 Diagnose_options = {
