@@ -60,7 +60,7 @@ if st.button("Predict"):
         probability = predicted_proba[predicted_class] * 100
 
 
-        if predicted_class == 1:
+    if predicted_class == 1:
         advice = (
             f"✅ 预测结果：麻附益肾方治疗对您可能有效 (概率: {probability:.1f}% "
             """
