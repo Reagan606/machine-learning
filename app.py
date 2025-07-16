@@ -76,32 +76,10 @@ if st.button("Predict"):
             - 密切监测病情变化
             """)
         
-        # 添加概率条可视化
-        prob_df = pd.DataFrame({
-            '治疗有效': [predicted_proba[1]],
-            '治疗无效': [predicted_proba[0]]
-        })
-        st.bar_chart(prob_df)
-        
-        # SHAP解释
-        st.subheader("特征影响分析")
-        explainer = shap.TreeExplainer(model)
-        shap_values = explainer.shap_values(input_df)
-        
-        # 使用Matplotlib创建SHAP图
-        plt.figure(figsize=(10, 6))
-        shap.summary_plot(shap_values, input_df, plot_type="bar", show=False)
-        plt.tight_layout()
-        st.pyplot(plt)
-        
-        # 特征重要性说明
-        st.caption("""
-        **说明：**
-        - 上图显示了各个特征对预测结果的影响程度
-        - 正值表示增加治疗有效的概率
-        - 负值表示增加治疗无效的概率
-        """)
-        
-    except Exception as e:
-        st.error(f"发生错误: {str(e)}")
-        st.info("请检查模型文件是否匹配当前特征设置")
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(pd.DataFrame([feature_values], columns=feature_names))
+
+shap.force_plot(explainer.expected_value, shap_values[0], pd.DataFrame([feature_values], columns=feature_names), matplotlib=True)
+plt.savefig("shap_force_plot.png", bbox_inches='tight', dpi=1200)
+
+st.image("shap_force_plot.png")
