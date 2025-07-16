@@ -4,10 +4,7 @@ import numpy as np
 import pandas as pd
 import shap
 import matplotlib.pyplot as plt
-import warnings
 
-# 忽略警告
-warnings.filterwarnings("ignore")
 
 # Load the model
 model = joblib.load('feature_info.pkl')
@@ -49,7 +46,6 @@ feature_values = [TBA, PA, RBC_U, CO2, CG, CVRDW, Lymph_abs, Baso_abs, ALP, TC, 
 features = np.array([feature_values])
 
 if st.button("Predict"):
-
     # 预测
     predicted_class = model.predict(features)[0]
     predicted_proba = model.predict_proba(features)[0]
