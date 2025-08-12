@@ -1,13 +1,3 @@
-1.构建疗效预测模型
-2.分析治疗前后血脂变化
-3.孟德尔随机化分析血脂与膜性肾病之间的关系
-4.多组学分析（人）
-5.动物实验血脂变化
-6.网药，中药入血成分分析，分子对接，分子动力学模拟
-7.实验，脂代谢   动物+细胞？
-
-
-
 
 import streamlit as st
 import joblib
@@ -96,3 +86,4 @@ if st.button("Predict"):
     plt.figure(figsize=(10, 2))
     shap.force_plot(exp_val, shap_vals[0], X.iloc[0], matplotlib=True, show=False)
     st.pyplot(plt.gcf(), clear_figure=True)
+
