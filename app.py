@@ -1,3 +1,20 @@
+import streamlit as st, traceback
+
+def main():
+    st.set_page_config(page_title="App", layout="wide")
+    st.write("App starting...")
+    # ===== 你的原始代码从这里粘进去 =====
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        st.error("未处理异常：")
+        st.exception(e)
+        st.code(traceback.format_exc())
+
+
+
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -149,3 +166,4 @@ if st.button("Predict"):
         st.error("运行时出现错误：")
         st.exception(e)
         st.code(traceback.format_exc())
+
